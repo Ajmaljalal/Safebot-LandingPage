@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.scrollY > 20) {
       header.style.padding = '0.5rem 0';
       header.style.boxShadow = 'none';
-      header.style.backgroundColor = 'var(--primary-light)';
+      header.style.backgroundColor = 'var(--primary-light)'; // Lighter navy blue
       header.classList.add('scrolled');
     } else {
       header.style.padding = '1rem 0';
