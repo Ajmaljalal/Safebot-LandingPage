@@ -261,14 +261,15 @@ header {
   left: 0;
   width: 100%;
   padding: var(--spacing-md) 0;
-  background-color: transparent;
+  background-color: var(--primary);
   box-shadow: none;
   z-index: 1000;
-  transition: all var(--transition-medium);
+  transition: padding var(--transition-medium);
 }
 
 header.scrolled {
-  background-color: var(--primary-light);
+  background-color: var(--primary);
+  box-shadow: none;
 }
 
 .nav-wrapper {
