@@ -338,6 +338,15 @@ header.scrolled {
   width: 100%;
 }
 
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+  background-color: var(--accent);
+}
+
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
