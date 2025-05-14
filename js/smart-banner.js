@@ -16,27 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sessionStorage.setItem('smartBannerClosed_v1', 'true');
   }
 
-  // Function to get approximate location based on IP address.
-  // This uses a free service; for production, a dedicated service with an API key is recommended.
-  // Note: This function is defined but not currently used to gate the banner display.
-  async function getUserLocationInfo() {
-    try {
-      const response = await fetch('https://ipapi.co/json/');
-      if (response.ok) {
-        const data = await response.json();
-        console.log('User location (approximate):', data); // For debugging/info
-        return {
-          city: data.city,
-          region: data.region,
-          country: data.country_name,
-          zip: data.postal // Postal code / zip code
-        };
-      }
-    } catch (error) {
-      console.warn('Smart Banner: Could not fetch location info.', error);
-    }
-    return null;
-  }
+  // getUserLocationInfo function has been moved to js/qrcode-logic.js
 
   function createSmartBanner() {
     if (isIOS() && !hasBannerBeenClosed()) {
@@ -133,13 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
       banner.appendChild(viewButtonLink);
 
       document.body.prepend(banner);
-
-      // Example of how you might call the location function (optional)
-      // getUserLocationInfo().then(location => {
-      //     if (location) {
-      //         // Potentially use location.zip or other data here
-      //     }
-      // });
     }
   }
 

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeBot App</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Discourage indexing of this intermediate page -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/safebot-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        /* background-color: #fff; */
+        padding: 30px;
+        border-radius: 8px;
+        /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+        border: 1px solid #ddd;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .container.loading-active {
+        /* box-shadow: none; */
+        /* border: 1px solid #ddd; */
+        /* background-color: #fff; */
+      }
+
+      .loading-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loading-indicator img.logo {
+        width: 80px;
+        height: auto;
+        margin-bottom: 25px;
+      }
+
+      .loading-indicator p {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #555;
+      }
+
+      /* Simple CSS spinner */
+      .spinner {
+        border: 4px solid #f3f3f3;
+        /* Light grey */
+        border-top: 4px solid #007aff;
+        /* Blue */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .content h2 {
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .content p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .form-group input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #002E5D;
+        /* --primary */
+        color: white;
+        /* --text-light */
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 8px;
+        /* var(--border-radius-md) */
+        font-weight: 600;
+        /* Matched btn-primary */
+        font-size: 16px;
+        /* 1rem */
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        /* var(--shadow-sm) */
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        /* var(--transition-fast) */
+      }
+
+      .btn:hover {
+        background-color: #001E3E;
+        /* var(--primary-dark) */
+        color: white;
+        /* --text-light */
+        transform: translateY(-2px);
+      }
+
+      /* Styles for the App Store button, mimicking index.html's .app-btn */
+      .app-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px;
+        background-color: #000000;
+        /* Black background */
+        color: #FFFFFF;
+        /* White text */
+        border-radius: 8px;
+        /* var(--border-radius-md) */
+        text-decoration: none;
+        /* Remove underline from link */
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        /* var(--transition-fast) */
+        min-width: 180px;
+        text-align: left;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        /* Added for spacing from paragraph above */
+      }
+
+      .app-btn:hover {
+        background-color: #002E5D;
+        /* var(--primary) */
+        transform: translateY(-2px);
+      }
+
+      .app-btn i.fab.fa-apple {
+        font-size: 2rem;
+        /* Standard Font Awesome icon size */
+        margin-right: 0.75rem;
+        /* Adjusted spacing (original var(--spacing-sm) was 0.5rem) */
+        flex-shrink: 0;
+      }
+
+      .app-btn span {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.2;
+      }
+
+      .app-btn small {
+        font-size: 0.75rem;
+        /* Slightly larger for readability */
+        opacity: 0.9;
+        margin-bottom: -2px;
+        /* Fine-tune vertical alignment */
+      }
+
+      .app-btn strong {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" id="page-container">
+      <div id="loading" class="loading-indicator">
+        <img src="img/safebot-logo.png" alt="SafeBot Logo" class="logo">
+        <div class="spinner"></div>
+        <p>Loading, please wait...</p>
+      </div>
+      <div id="page-content" class="content hidden">
+        <!-- Content will be injected here by JavaScript -->
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+
+      // IMPORTANT: Fill in your Firebase project configuration details below!
+      const firebaseConfig = {
+        apiKey: "AIzaSyDq134mjrpOv-0DjUnjsdSvoWOqIX3uiyw",
+        authDomain: "safebot-analytics.firebaseapp.com",
+        projectId: "safebot-analytics", // This was provided
+        storageBucket: "safebot-analytics.firebasestorage.app",
+        messagingSenderId: "898198482040",
+        appId: "1:898198482040:web:2780d37460e12387e9518d"
+      };
+
+      try {
+        const app = initializeApp(firebaseConfig);
+        // Make Firestore instance and functions globally available for qrcode-logic.js
+        window.firebaseDB = getFirestore(app);
+        window.firebaseFirestore = { collection, addDoc };
+        console.log("Firebase initialized successfully from qrcode.html.");
+      } catch (e) {
+        console.error("Firebase initialization failed in qrcode.html:", e);
+        // Display an error message on the page if Firebase fails to initialize
+        const loadingElement = document.getElementById('loading');
+        if (loadingElement) {
+          loadingElement.innerHTML = '<p style="color:red; font-weight:bold;">Error initializing critical services. Unable to proceed.</p>';
+        }
+        const pageContentElement = document.getElementById('page-content');
+        if (pageContentElement) {
+          pageContentElement.classList.add('hidden'); // Hide main content area if loading failed
+        }
+      }
+    </script>
+
+    <script src="js/qrcode-logic.js" defer></script>
+  </body>
+
+</html>
