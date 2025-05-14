@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const appTextInfo = document.createElement('div');
       appTextInfo.innerHTML = `
                 <div style="font-weight: 600; color: #000; font-size: 15px; line-height: 1.2;">SafeBot</div>
-                <div style="font-size: 12px; color: #555; line-height: 1.3;">Ajmal Jalal</div>
+                <div style="font-size: 12px; color: #555; line-height: 1.3;">By SafeBot Security</div>
                 <div style="font-size: 11px; color: #888; line-height: 1.3;">GET - In the App Store</div>
             `;
 
