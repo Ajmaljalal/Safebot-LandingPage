@@ -135,3 +135,163 @@
     margin-bottom: var(--spacing-lg);
   }
 }
+
+/* Footer Vertical Column Mode */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-md);
+}
+
+.footer-col {
+  width: 100%;
+  max-width: 500px;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: var(--spacing-md) 0 !important;
+  padding: var(--spacing-sm) 0 !important;
+}
+
+.footer-col h4 {
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-col ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.footer-col ul li {
+  margin-bottom: 0;
+}
+
+.footer-col p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-bottom {
+  margin-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Additional footer adjustments */
+footer {
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.footer-content>.footer-col:first-child {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-content>.footer-col:last-child {
+  margin-top: 0;
+}
+
+/* Ensure consistent footer logo spacing */
+.footer-logo {
+  margin: var(--spacing-xs) 0 !important;
+  padding: 0 !important;
+}
+
+/* Tighter layout for legal links */
+.footer-col:nth-child(4) {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.footer-col:nth-child(4) h4 {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Reduce overall footer spacing */
+.footer-content {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Hide footer logo text but keep the image */
+.footer-logo a {
+  font-size: 0;
+}
+
+.footer-logo img {
+  margin-right: 0;
+  height: 70px !important;
+  /* Force consistent height */
+  width: auto !important;
+  margin-top: 5px !important;
+  /* Add minimal top margin */
+}
+
+/* Set max-width for the footer description text */
+.footer-col:first-child p {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Legal section column layout */
+.footer-col:nth-child(4) ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.footer-col:nth-child(4) ul li {
+  width: 100%;
+  max-width: 200px;
+}
+
+.footer-col:nth-child(4) ul li a {
+  display: block;
+  padding: var(--spacing-xs) 0;
+  transition: all var(--transition-fast);
+}
+
+.footer-col:nth-child(4) ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Mobile specific footer adjustments */
+@media screen and (max-width: 576px) {
+  footer {
+    padding: var(--spacing-md) 0 var(--spacing-sm);
+  }
+
+  .footer-col {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .footer-col p {
+    font-size: 0.9rem;
+  }
+
+  .footer-logo {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /* Override any mobile-specific logo size reductions */
+  .logo img,
+  .footer-logo img {
+    height: 70px !important;
+    width: auto !important;
+    margin-top: 5px !important;
+    padding-top: 0 !important;
+  }
+
+  .footer-bottom {
+    margin-top: var(--spacing-sm);
+  }
+}
