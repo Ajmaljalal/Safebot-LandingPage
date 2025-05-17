@@ -202,6 +202,28 @@
       .hidden {
         display: none;
       }
+
+      /* QR code shows on desktop, hides on mobile */
+      .qrcode {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* App Store button shows on mobile, hides on desktop */
+      .app-btn--mobile-only {
+        display: none;
+      }
+
+      @media (max-width: 600px) {
+        .qrcode {
+          display: none;
+        }
+
+        .app-btn--mobile-only {
+          display: inline-flex;
+        }
+      }
     </style>
   </head>
 

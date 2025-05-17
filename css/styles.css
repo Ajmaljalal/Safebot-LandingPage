@@ -206,17 +206,27 @@ p {
 
 /* App Store Button */
 .app-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 8px 16px;
   background-color: #000000;
-  color: var(--text-light);
-  border-radius: var(--border-radius-md);
-  margin-right: var(--spacing-md);
-  transition: all var(--transition-fast);
+  color: #FFFFFF;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
   min-width: 200px;
-  text-align: left;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.app-btn-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-btn:hover {
@@ -1001,6 +1011,44 @@ header.scrolled .nav-links a:hover {
   justify-content: center;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.qr-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+.qr-code>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.qr-code img {
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius-sm);
+  padding: 5px;
+  background-color: #fff;
+  margin-bottom: var(--spacing-sm);
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+
+.qr-code p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  width: 100%;
+  text-align: center;
+  display: block;
 }
 
 /* ------------------ */

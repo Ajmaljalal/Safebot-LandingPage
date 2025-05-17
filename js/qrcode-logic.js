@@ -197,8 +197,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     pageContentElement.innerHTML = `
             <img src="img/safebot-logo.png" alt="SafeBot Logo" style="width: 200px; height: auto; margin-bottom: 10px;" class="logo">
             <h2>Welcome to SafeBot!</h2>
-            <p style="margin-bottom: 15px;">If you're on an iPhone, you can find our app on the</p>
-            <a href="${IOS_APP_STORE_URL}" class="app-btn" aria-label="Download on the App Store" target="_blank">
+            <p style="margin-bottom: 15px;">If you're on an iPhone, scan the QR code below or tap the button to download our app:</p>
+            <img src="img/app-store-qrcode.png" alt="SafeBot App Store QR Code" style="width: 180px; height: auto; margin-bottom: 15px;" class="qrcode">
+            <a href="${IOS_APP_STORE_URL}" class="app-btn app-btn--mobile-only" aria-label="Download on the App Store" target="_blank">
               <i class="fab fa-apple" aria-hidden="true"></i>
               <span>
                 <small>Download on the</small>
